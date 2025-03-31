@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        path { fill: #0066cc; }
+        @media (prefers-color-scheme: dark) {
+            path { fill: #0078D7; }
+        }
+    </style>
+    <!-- Simple tower shape -->
+    <path d="M8 28h16v2H8v-2zM10 4v24h12V4h-2v2h-2V4h-4v2h-2V4h-2zm2 4h8v18h-8V8z" />
+    <!-- Tower windows -->
+    <path d="M13 11h2v2h-2v-2zm4 0h2v2h-2v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2z" />
+    <!-- Tower top -->
+    <path d="M7 2v3h4V3h2v2h2V3h2v2h4V2z" />
+</svg>
