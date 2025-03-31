@@ -13,6 +13,18 @@ const characterAmounts = {
   15: [9, 2, 3, 1],
 };
 
+// Default values
+const DEFAULT_VALUES = {
+  PLAYERS: 10,
+  TRAVELLERS: 0,
+};
+
+// Storage keys
+const STORAGE_KEYS = {
+  PLAYERS: 'botc-player-count',
+  TRAVELLERS: 'botc-traveller-count',
+};
+
 // Function to update character counts based on player count
 function updateCharacterCounts(playerCount) {
   const [townsfolk, outsiders, minions, demons] = characterAmounts[playerCount];
@@ -22,6 +34,32 @@ function updateCharacterCounts(playerCount) {
   document.querySelector('.outsiders .number').textContent = outsiders;
   document.querySelector('.minions .number').textContent = minions;
   document.querySelector('.demons .number').textContent = demons;
+}
+
+// Function to save values to localStorage
+function saveToStorage(key, value) {
+  try {
+    localStorage.setItem(key, value.toString());
+  } catch (e) {
+    console.warn('Failed to save to localStorage:', e);
+  }
+}
+
+// Function to load values from localStorage
+function loadFromStorage(key, defaultKey) {
+  try {
+    const value = localStorage.getItem(key);
+    if (value === null) {
+      // If no value found, save and return the default
+      const defaultValue = DEFAULT_VALUES[defaultKey];
+      saveToStorage(key, defaultValue);
+      return defaultValue;
+    }
+    return parseInt(value, 10);
+  } catch (e) {
+    console.warn('Failed to load from localStorage:', e);
+    return DEFAULT_VALUES[defaultKey];
+  }
 }
 
 // Add click handlers to increment/decrement numbers
@@ -48,7 +86,7 @@ document.querySelectorAll('.box').forEach((box) => {
   });
 });
 
-// Handle the new controls
+// Handle the controls
 function adjustValue(type, change) {
   const element = document.getElementById(`${type}-value`);
   let value = parseInt(element.textContent);
@@ -56,18 +94,24 @@ function adjustValue(type, change) {
   // Apply minimum and maximum values
   if (type === 'players') {
     value = Math.min(15, Math.max(5, value + change)); // Between 5 and 15 players
-    updateCharacterCounts(value); // Update character counts when player count changes
+    updateCharacterCounts(value);
+    saveToStorage(STORAGE_KEYS.PLAYERS, value);
   } else if (type === 'travellers') {
     value = Math.min(5, Math.max(0, value + change)); // Between 0 and 5 travellers
+    saveToStorage(STORAGE_KEYS.TRAVELLERS, value);
   }
 
   element.textContent = value;
 }
 
-// Initialize character counts based on default player count
+// Initialize values from localStorage when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  const initialPlayerCount = parseInt(
-    document.getElementById('players-value').textContent
-  );
-  updateCharacterCounts(initialPlayerCount);
+  // Load and set player count
+  const playerCount = loadFromStorage(STORAGE_KEYS.PLAYERS, 'PLAYERS');
+  document.getElementById('players-value').textContent = playerCount;
+  updateCharacterCounts(playerCount);
+
+  // Load and set traveller count
+  const travellerCount = loadFromStorage(STORAGE_KEYS.TRAVELLERS, 'TRAVELLERS');
+  document.getElementById('travellers-value').textContent = travellerCount;
 });
