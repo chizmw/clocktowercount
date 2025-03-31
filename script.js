@@ -25,6 +25,23 @@ const STORAGE_KEYS = {
   TRAVELLERS: 'botc-traveller-count',
 };
 
+// Function to update the title with player count and traveller subtitle
+function updateTitle(playerCount, travellerCount) {
+  const titleElement = document.getElementById('player-count-title');
+  const subtitleElement = document.getElementById('traveller-subtitle');
+
+  titleElement.textContent = `${playerCount} Players`;
+
+  if (travellerCount > 0) {
+    subtitleElement.textContent = `+${travellerCount} ${
+      travellerCount === 1 ? 'Traveller' : 'Travellers'
+    }`;
+    subtitleElement.style.display = 'block';
+  } else {
+    subtitleElement.style.display = 'none';
+  }
+}
+
 // Function to update character counts based on player count
 function updateCharacterCounts(playerCount) {
   const [townsfolk, outsiders, minions, demons] = characterAmounts[playerCount];
@@ -35,10 +52,11 @@ function updateCharacterCounts(playerCount) {
   document.querySelector('.minions .number').textContent = minions;
   document.querySelector('.demons .number').textContent = demons;
 
-  // Update the title
-  document.getElementById(
-    'player-count-title'
-  ).textContent = `${playerCount} Players`;
+  // Update the title with current traveller count
+  const travellerCount = parseInt(
+    document.querySelector('.travellers .number').textContent
+  );
+  updateTitle(playerCount, travellerCount);
 }
 
 // Function to save values to localStorage
@@ -106,6 +124,11 @@ function adjustValue(type, change) {
     // Update the traveller count in the main display area
     document.querySelector('.travellers .number').textContent = value;
     saveToStorage(STORAGE_KEYS.TRAVELLERS, value);
+    // Update the title with new traveller count
+    const playerCount = parseInt(
+      document.getElementById('players-value').textContent
+    );
+    updateTitle(playerCount, value);
   }
 
   element.textContent = value;
@@ -122,4 +145,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const travellerCount = loadFromStorage(STORAGE_KEYS.TRAVELLERS, 'TRAVELLERS');
   document.getElementById('travellers-value').textContent = travellerCount;
   document.querySelector('.travellers .number').textContent = travellerCount;
+  updateTitle(playerCount, travellerCount);
 });

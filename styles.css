@@ -282,7 +282,7 @@ body {
   color: white;
   text-align: center;
   font-size: clamp(28px, 7vw, 36px);
-  margin: 0 0 24px;
+  margin: 0 0 8px;
   font-weight: 600;
   padding: 20px 24px;
   background-color: #1e392e;
@@ -293,8 +293,28 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.traveller-subtitle {
+  display: none;
+  text-align: center;
+  font-size: clamp(14px, 3.5vw, 16px);
+  margin: 0 0 16px;
+  padding: 8px 16px;
+  background-color: #e67e00;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.player-count-title + :not(.traveller-subtitle) {
+  margin-top: 16px;
+}
+
 @media (min-width: 768px) {
-  .player-count-title {
+  .player-count-title,
+  .traveller-subtitle {
     max-width: 500px;
   }
 }
