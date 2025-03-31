@@ -103,6 +103,8 @@ function adjustValue(type, change) {
     saveToStorage(STORAGE_KEYS.PLAYERS, value);
   } else if (type === 'travellers') {
     value = Math.min(5, Math.max(0, value + change)); // Between 0 and 5 travellers
+    // Update the traveller count in the main display area
+    document.querySelector('.travellers .number').textContent = value;
     saveToStorage(STORAGE_KEYS.TRAVELLERS, value);
   }
 
@@ -119,4 +121,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load and set traveller count
   const travellerCount = loadFromStorage(STORAGE_KEYS.TRAVELLERS, 'TRAVELLERS');
   document.getElementById('travellers-value').textContent = travellerCount;
+  document.querySelector('.travellers .number').textContent = travellerCount;
 });
