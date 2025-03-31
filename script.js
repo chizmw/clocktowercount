@@ -34,6 +34,11 @@ function updateCharacterCounts(playerCount) {
   document.querySelector('.outsiders .number').textContent = outsiders;
   document.querySelector('.minions .number').textContent = minions;
   document.querySelector('.demons .number').textContent = demons;
+
+  // Update the title
+  document.getElementById(
+    'player-count-title'
+  ).textContent = `${playerCount} Players`;
 }
 
 // Function to save values to localStorage
