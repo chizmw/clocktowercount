@@ -8,6 +8,72 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <button
+      class="info-button"
+      onclick="document.getElementById('about-dialog').showModal()"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+        />
+      </svg>
+    </button>
+
+    <dialog id="about-dialog" class="about-dialog">
+      <h2>About Tower Count</h2>
+
+      <div class="qr-code-container">
+        <img
+          id="qrCode"
+          alt="QR Code to Tower Count website"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fcount.arcane-scripts.net"
+        />
+        <p class="website-link">
+          <a
+            href="https://count.arcane-scripts.net"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            count.arcane-scripts.net
+          </a>
+        </p>
+      </div>
+
+      <div class="kofi-container">
+        <a
+          href="https://ko-fi.com/chizmw"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
+            alt="Support Me on Ko-fi"
+          />
+        </a>
+      </div>
+
+      <p class="disclaimer">
+        This counter is an open source project and is not affiliated with
+        <a
+          href="https://bloodontheclocktower.com/about-us"
+          target="_blank"
+          rel="noopener noreferrer"
+          >The Pandemonium Institute</a
+        >. Feel free to contribute on
+        <a
+          href="https://github.com/chizmw/clocktowercount"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >.
+      </p>
+
+      <button class="close-button" onclick="this.closest('dialog').close()">
+        Close
+      </button>
+    </dialog>
+
     <div class="container">
       <div class="box townsfolk">
         <div>TOWNSFOLK</div>
