@@ -9,6 +9,7 @@ body {
   background-color: #1a1a1a;
   color: white;
   padding: 12px;
+  box-sizing: border-box;
 }
 
 .container {
@@ -28,7 +29,7 @@ body {
   align-items: center;
   color: white;
   padding: 12px;
-  aspect-ratio: 1.2/1;
+  min-height: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -60,8 +61,8 @@ body {
 .travellers {
   background-color: #e67e00;
   grid-column: 1 / -1;
-  aspect-ratio: 4/1;
-  padding: 2px 8px;
+  min-height: 80px;
+  padding: 8px;
 }
 
 .travellers > div:first-child {
@@ -79,6 +80,7 @@ body {
 .controls {
   width: 100%;
   max-width: 400px;
+  margin-bottom: 16px;
 }
 
 .control-row {
@@ -133,53 +135,54 @@ body {
 
 @media (min-width: 768px) {
   .container {
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    max-width: 500px;
+    gap: 12px;
   }
 
   .travellers {
-    grid-column: 1 / 2;
+    grid-column: 1 / -1;
   }
 
   .box {
-    aspect-ratio: 1.5/1;
-    padding: 20px;
+    min-height: 140px;
+    padding: 16px;
   }
 
   .control-row {
     padding: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 }
 
 .info-button {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 24px;
+  left: 8px;
   width: 48px;
   height: 48px;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #999;
+  background-color: rgba(42, 42, 42, 0.95);
+  color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   backdrop-filter: blur(4px);
+  z-index: 1000;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .info-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(58, 58, 58, 0.95);
 }
 
 .info-button svg {
-  width: 28px;
-  height: 28px;
-  opacity: 0.8;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
 }
 
 .about-dialog {
