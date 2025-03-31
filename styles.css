@@ -281,19 +281,20 @@ body {
 .player-count-title {
   color: white;
   text-align: center;
-  font-size: clamp(24px, 6vw, 32px);
+  font-size: clamp(28px, 7vw, 36px);
   margin: 0 0 24px;
-  font-weight: normal;
-  padding: 16px 24px;
-  background-color: #2a2a2a;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  padding: 20px 24px;
+  background-color: #1e392e;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   width: 100%;
   max-width: 400px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
   .player-count-title {
-    max-width: 600px;
+    max-width: 500px;
   }
 }
