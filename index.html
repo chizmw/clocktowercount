@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood on the Clocktower Player Counts</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box townsfolk">
+        <div>TOWNSFOLK</div>
+        <div class="number">7</div>
+      </div>
+      <div class="box outsiders">
+        <div>OUTSIDERS</div>
+        <div class="number">1</div>
+      </div>
+      <div class="box minions">
+        <div>MINIONS</div>
+        <div class="number">2</div>
+      </div>
+      <div class="box demons">
+        <div>DEMONS</div>
+        <div class="number">1</div>
+      </div>
+      <div class="box travellers">
+        <div>TRAVELLERS</div>
+        <div class="number">0</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-row">
+        <div class="control-label">Players</div>
+        <div class="control-group">
+          <button class="control-button" onclick="adjustValue('players', -1)">
+            −
+          </button>
+          <div id="players-value" class="control-value">10</div>
+          <button class="control-button" onclick="adjustValue('players', 1)">
+            +
+          </button>
+        </div>
+      </div>
+      <div class="control-row">
+        <div class="control-label">Travellers</div>
+        <div class="control-group">
+          <button
+            class="control-button"
+            onclick="adjustValue('travellers', -1)"
+          >
+            −
+          </button>
+          <div id="travellers-value" class="control-value">0</div>
+          <button class="control-button" onclick="adjustValue('travellers', 1)">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

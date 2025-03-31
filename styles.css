@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 12px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 16px;
+}
+
+.box {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 12px;
+  aspect-ratio: 1.2/1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.box > div:first-child {
+  font-size: clamp(16px, 3.5vw, 22px);
+  margin-bottom: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.number {
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: bold;
+  line-height: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.townsfolk {
+  background-color: #0066cc;
+}
+.outsiders {
+  background-color: #0066cc;
+}
+.minions {
+  background-color: #c41e3a;
+}
+.demons {
+  background-color: #c41e3a;
+}
+.travellers {
+  background-color: #e67e00;
+  grid-column: 1 / -1;
+  aspect-ratio: 4/1;
+  padding: 2px 8px;
+}
+
+.travellers > div:first-child {
+  font-size: clamp(14px, 3vw, 18px);
+  margin-bottom: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.travellers .number {
+  font-size: clamp(24px, 6vw, 40px);
+  line-height: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+  width: 100%;
+  max-width: 400px;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background-color: #2a2a2a;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.control-label {
+  font-size: clamp(16px, 3.5vw, 18px);
+  margin-right: 20px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-button {
+  background-color: #1e392e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: clamp(36px, 8vw, 48px);
+  height: clamp(36px, 8vw, 48px);
+  font-size: clamp(20px, 5vw, 28px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.control-button:active {
+  background-color: #2a4d3e;
+}
+
+.control-value {
+  background-color: #2f2f2f;
+  padding: 6px 12px;
+  border-radius: 8px;
+  min-width: 40px;
+  text-align: center;
+  font-size: clamp(16px, 3.5vw, 18px);
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .travellers {
+    grid-column: 1 / 2;
+  }
+
+  .box {
+    aspect-ratio: 1.5/1;
+    padding: 20px;
+  }
+
+  .control-row {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+}
