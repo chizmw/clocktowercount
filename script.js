@@ -85,30 +85,6 @@ function loadFromStorage(key, defaultKey) {
   }
 }
 
-// Add click handlers to increment/decrement numbers
-document.querySelectorAll('.box').forEach((box) => {
-  box.addEventListener('click', (e) => {
-    const numberElement = box.querySelector('.number');
-    const currentValue = parseInt(numberElement.textContent);
-
-    // Left click to increment, right click to decrement
-    if (e.button === 2) {
-      // Right click
-      if (currentValue > 0) {
-        numberElement.textContent = currentValue - 1;
-      }
-    } else {
-      // Left click
-      numberElement.textContent = currentValue + 1;
-    }
-  });
-
-  // Prevent context menu on right click
-  box.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-  });
-});
-
 // Handle the controls
 function adjustValue(type, change) {
   const element = document.getElementById(`${type}-value`);
